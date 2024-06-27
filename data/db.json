@@ -1,0 +1,32 @@
+{
+  "tickets": [
+    {
+      "id": "1",
+      "title": "Fix the footer links please",
+      "body": "The footer links are broken and need to be updated.",
+      "priority": "low",
+      "user_email": "mario@netninja.dev"
+    },
+    {
+      "id": "2",
+      "title": "Update the homepage banner",
+      "body": "The homepage banner needs to be updated with the new promotion.",
+      "priority": "medium",
+      "user_email": "luigi@netninja.dev"
+    },
+    {
+      "id": "3",
+      "title": "Improve site loading speed",
+      "body": "The website loading speed is slow and needs optimization.",
+      "priority": "high",
+      "user_email": "peach@netninja.dev"
+    },
+    {
+      "id": "4",
+      "title": "Add new blog post",
+      "body": "A new blog post needs to be added to the site.",
+      "priority": "low",
+      "user_email": "toad@netninja.dev"
+    }
+  ]
+}
