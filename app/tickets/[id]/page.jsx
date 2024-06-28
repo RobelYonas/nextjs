@@ -1,12 +1,30 @@
+import { PageNotFoundError } from 'next/dist/shared/lib/utils'
+import { notFound } from 'next/navigation'
 import React from 'react'
 
+export async function generateStaticParams() {
+    const res = await fetch('http://localhost:4000/tickets')
+
+    const tickets = await res.json()
+
+    return tickets.map((ticket)=> {{
+        id: ticket.id
+    }})
+}
+
 async function getTicketDetial(id) {
+
+    await new Promise(resolve => setTimeout(resolve, 3000))
 
     const getTicketDetail = await fetch(`http://localhost:4000/tickets/` + id, {
         next: {
             revalidate: 60
         }
     })
+    
+    if (!getTicketDetail.ok){
+        notFound()
+    }
 
      return getTicketDetail.json()
 }

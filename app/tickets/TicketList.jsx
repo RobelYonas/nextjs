@@ -8,6 +8,9 @@ async function getTicket(){
      * @return {Promise<Array>} An array of ticket objects.
      */
     // Fetch tickets from the server
+
+    await new Promise(resolve => setTimeout(resolve, 3000))
+
     const res = await fetch('http://localhost:4000/tickets', {
         // Set the revalidation time to 0 to always fetch the latest data
         next: {
