@@ -1,7 +1,18 @@
-export default function SignUp() {
+"use client"
+
+import AuthForm from "../AuthForm";
+
+
+export default function signUp() {
+
+  const handleSubmit = async (e, email, password) => {
+    e.preventDefault()
+    console.log("Signup", email, password)
+  }
+
   return (
     <main>
-      <h2 className="text-center">Signup</h2>
+      <AuthForm handleSubmit={handleSubmit} />
     </main>
   )
 }

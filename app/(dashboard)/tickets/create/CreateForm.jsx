@@ -12,23 +12,28 @@ export default function CreateForm() {
     const [isLoading, setIsLoading] = useState(false)
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setIsLoading(true)
+        e.preventDefault(); // Prevents the default form submission behavior
+        setIsLoading(true); // Sets a loading state to true, which could be used to show a loading spinner or disable the submit button
 
-        const newTicket = { title, body, priority, user_email: 'mario@netninja.dev' }
+        // Create a new ticket object with form data
+        const newTicket = { title, body, priority, user_email: 'mario@netninja.dev' };
 
+        // Make a POST request to the server with the new ticket data
         const res = await fetch('http://localhost:4000/tickets', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newTicket)
-        })
+        });
 
+        // Check if the response status is 201 (Created)
         if (res.status === 201) {
-            router.refresh()
-            router.push('/tickets')
+            // Refresh the router to get the latest data
+            router.refresh();
+            // Redirect the user to the /tickets page
+            router.push('/tickets');
         }
+    };
 
-    }
 
     return (
         <form onSubmit={handleSubmit} className="w-1/2">
